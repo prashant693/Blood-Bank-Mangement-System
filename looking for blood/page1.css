@@ -1,0 +1,47 @@
+section{
+    margin: auto;
+    position: relative;
+    width: 80%;
+    align-self: center;
+    
+}
+.header{
+    color: white;
+    background-color: #bf2229;
+    height: 40px;
+    font-size: 24pt;
+    padding:5px;
+}
+
+button{
+    background-color: #bf2229;
+    color:white;
+    font-size: 14pt;
+    padding:6px 12px;
+    border-radius: 3px;
+    border: solid 2px transparent;
+}
+
+td{
+    border: 1px solid white;
+}
+th{
+    background-color: #bf2229;
+    color:white;
+}
+.table-hover tbody tr:hover td {
+    background-color: lightgreen;
+  }
+button:hover{
+    background-color: transparent;
+    border: 1px solid #bf2229;
+    color:#bf2229;
+}  
+h1{
+    color:#bf2229;
+    margin: auto;
+    position: relative;
+}
+.form-control{
+    margin: 10px;
+}

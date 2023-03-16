@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+      </style>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+      <script src="{{url_for('static',filename='c.js')}}"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='page2.css')}}">
+</head>
+<body>
+    <section>
+        <div>
+            <h1>Nearest Blood Bank</h1>
+            <br>
+            <br>
+        </div>
+        <div class="header">
+            <h4>Search Nearest Blood Bank</h4>
+        </div>
+        <div class="row">
+     
+    
+          <br>
+          <form action="/search" method = "POST">
+    
+          <div class="col-md-3">
+
+            <select class="form-control" onchange="print_city('state', this.selectedIndex);" id="s"  required></select>
+                          </select>
+            </div>			 
+            
+            <div class="col-md-3 lineseparator">
+     
+            <select class="form-control" id="state" name="district" required >
+            <option>Select City</option>
+            </select>
+            </div>
+          <div class="col-md-4 ">
+            <div class="easy-autocomplete" style="width: 360px;"><input type="text" class="form-control" id="txtBbname" placeholder="Blood Bank or Hospital Name" autocomplete="off"><div class="easy-autocomplete-container" id="eac-container-txtBbname"><ul></ul></div></div>
+          </div>
+          <!-- <div class="col-md-3">
+            <input type="text" class="form-control" id="autocomplete"
+              onFocus="geolocate()" placeholder="Location">
+          </div> -->
+          <div class="col-md-2">
+            <input type="submit" class="btn btn-danger" value="Search">
+          </div>
+          </form>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>    
+        </div> 
+        <table id="example-table" class="table table-bordered table-hover">
+            <thead class="bgtablered">
+            <tr><th>ID</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>District</th>
+              <th>State</th>
+              <th>Phone</th>
+              <th>Email</th>
+            </tr></thead>	
+            <tbody>
+              {% for task in fetchdata %}
+              <tr>
+                  <td>{{task[0]}}</td>
+                  <td>{{task[1]}}</td>
+                  <td>{{task[2]}}</td>
+                  <td>{{task[3]}}</td>
+                  <td>{{task[4]}}</td>
+                  <td>{{task[5]}}</td>
+                  <td>{{task[6]}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>                                                                 
+            
+          </table>
+    
+    <script>
+        print_state("s");
+     </script>
+</body>
+</html>

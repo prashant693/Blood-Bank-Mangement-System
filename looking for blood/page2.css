@@ -1,0 +1,40 @@
+section{
+    margin: auto;
+    position: relative;
+    width: 80%;
+    align-self: center;
+    
+}
+.header{
+    color: white;
+    background-color: #bf2229;
+    height: 40px;
+    font-size: 24pt;
+    padding:5px;
+}
+
+
+
+td{
+    border: 1px solid white;
+}
+th{
+    background-color: #bf2229;
+    color:white;
+}
+.table-hover tbody tr:hover td {
+    background-color: lightgreen;
+  }
+  
+h1{
+    color:#bf2229;
+    margin: auto;
+    position: relative;
+}
+.form-control{
+    margin: 10px;
+}
+.btn{
+    margin-top: 10px;
+    margin-left: 20px;
+}

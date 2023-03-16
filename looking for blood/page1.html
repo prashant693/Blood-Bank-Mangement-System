@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+      </style>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+      <script src="{{url_for('static',filename='c.js')}}"></script>
+      
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='page1.css')}}">
+</head>
+<body>
+    <section>
+        <div>
+            <h1>Blood Stock Availiblity</h1>
+            <br>
+            <br>
+        </div>
+        <div class="header">
+            <h4>Quick Search</h4>
+        </div>
+        <div class="panel-body">
+    
+  
+          <div class="row">
+          </div>
+          <div class="row">
+  
+            <form action="/search" method = "POST">  
+        
+          <div class="col-md-3">
+
+          <select class="form-control" onchange="print_city('state', this.selectedIndex);" id="s"  required></select>
+                        </select>
+          </div>			 
+          
+          <div class="col-md-3 lineseparator">
+   
+          <select class="form-control" id="state" name ="district" required>
+          <option>Select District</option>
+          </select>
+          </div>
+           
+          <div class="col-md-0">
+          </div>
+          
+          <div class="col-md-3">
+          <select name="bloodGroupType" onchange="resetComponent(this.value)" class="form-control" id="bgType"><option value="-1">Select Blood Group</option> 
+                                         
+          <option value="AB-Ve">AB-Ve</option>
+          <option value="AB+Ve">AB+Ve</option>
+          <option value="A-Ve">A-Ve</option>
+          <option value="A+Ve">A+Ve</option>
+          <option value="B-Ve">B-Ve</option>
+          <option value="B+Ve">B+Ve</option>
+          <option value="oh-Ve">Oh-VE</option>
+          <option value="oh+Ve">Oh+VE</option>
+          <option value="o-Ve">O-Ve</option>
+          <option value="o+Ve">O+Ve</option>
+          <option value="All Blood Group">All Blood Groups</option></select> 
+          </div>
+          
+          <div class="col-md-3">
+          
+          <select name="bloodComponentType" onchange="componentSelected(this.value)" class="form-control" id="bcType"><option value="-1">Select Blood Component</option> 
+                                         
+                                           <option value="11">Whole Blood</option>
+          <option value="14">Single Donor Platelet</option>
+          <option value="18">Single Donor Plasma</option>
+          <option value="28">Sagm Packed Red Blood Cells</option>
+          <option value="16">Platelet Rich Plasma</option>
+          <option value="15">Platelet Poor Plasma</option>
+          <option value="20">Platelet Concentrate</option>
+          <option value="19">Plasma</option>
+          <option value="12">Packed Red Blood Cells</option>
+          <option value="30">Leukoreduced Rbc</option>
+          <option value="29">Irradiated RBC</option>
+          <option value="13">Fresh Frozen Plasma</option>
+          <option value="17">Cryoprecipitate</option>
+          <option value="21">Cryo Poor Plasma</option></select> 
+          
+          
+          </div>
+          
+          <br>
+          <br>  
+          </div>
+          <br>
+          <br>
+          </div>
+          <div class="jumbotron text-center">
+            <button type="submit"> Search</button>
+        </div>
+        </form>
+    
+        <table class="table table-hover">
+            <tr>
+                <th>S.no</th>
+                <th>Blood Bank</th>
+                <th>Phone:</th>
+                <th>Address</th>
+                <th>Category</th>
+                <th>Availiblity</th>
+            </tr>
+            {% for task in fetchdata %}
+            <tr>
+                <td>{{task[0]}}</td>
+                <td>{{task[1]}}</td>
+                <td>{{task[5]}}</td>
+                <td>{{task[3]}},{{task[4]}}</td>
+                <td>{{task[2]}}</td>
+                <td>{{task[8]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    <script>
+        print_state("s");
+     </script>
+</body>
+</html>
